@@ -13,7 +13,7 @@ let opt2=""
 function bg()
 {
   const folder = "backG/"
-let scene = ["house","road","traffic","mexico"];
+let scene = ["house","road","traffic","mexico","fbi","","","","jail"];
 
  document.body.style.backgroundImage = "url("+folder+ scene[path]+".jpg)";
 }
@@ -26,7 +26,7 @@ document.getElementById("start").addEventListener("click", startGame )
 let left = document.getElementById("left");
 let right = document.getElementById("right");
 let images = document.getElementById("images");
-let win = document.getElementById("win");
+let end = document.getElementById("end");
 
 //when choices are clicked
 left.addEventListener("click", () => pathChanger("left"))
@@ -65,16 +65,15 @@ function pathChanger(choice)
   if(choice == "left" && (path == 0 || path == 1))
   {
     path++;
-    game();
   }
   else if(choice == "right" && (path == 2 || path == 8))
   {
     path++;
-    game();
   }
   else{
     path+=4;
   }
+  game();
  console.log(path);
 }
 
@@ -114,12 +113,22 @@ function game()
 
       //perfect win
     case 3:
-      winner();
+      win();
 
       break;
 
     case 4:
+      text.innerHTML = "You watched tv for a while. You wasted time and the police is at your door now. Now what do you want to do?";
 
+      left.innerHTML = "Run to the attic, and escape on the roof quietly"
+      right.innerHTML = "Leave through your backyard quietly"
+      opt1="roof";
+      opt2="backyard";
+      break;
+
+    case 8:
+      lose();
+      break;
 
 
     default:
@@ -131,17 +140,28 @@ function game()
   }
 }
 
-function winner()
+function win()
 {
+  //if (path==3)
   text.innerHTML = "You sprint to the airport as fast as you can. You should be in the olympics cause you catched your flight! Now you won’t have to worry about the FBI. At least for now… \n YOU WIN!";
 
   left.style.visibility = "hidden";
   right.style.visibility = "hidden";
   images.style.visibility = "hidden";
-  win.style.visibility = "visible";
+  end.style.visibility = "visible";
   
  
   
   console.log("You Win!")
 }
+
+function lose()
+  {
+    left.style.visibility = "hidden";
+    right.style.visibility = "hidden";
+    images.style.visibility = "hidden";
+    end.style.visibility = "visible";
+  text.innerHTML = "GAME OVER";
+    end.src= "images/criminal.jpg";
+  }
 

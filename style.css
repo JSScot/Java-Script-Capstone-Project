@@ -1,6 +1,10 @@
-html {
-  height: 100%;
-  width: 100%;
+
+
+body
+{
+  background-image: url("");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #main_text
@@ -13,14 +17,50 @@ html {
   margin-right: auto;
   margin-bottom: 50px;
   font-size: 25px;
+  background-color: white;
 }
 
-#start
+#start 
 {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width:60px;
   height:50px;
+  visibility: visible;
+}
+
+#left
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width:100px;
+  height:70px;
+  visibility: hidden;
+  border-radius: 20px;
+}
+
+#right
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:100px;
+  height:70px;
+  visibility: hidden;
+  border-radius: 20px;
+}
+
+#images
+{
+  width:400px;
+  height:300px;
+  display: block;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  visibility: hidden;
 }
 

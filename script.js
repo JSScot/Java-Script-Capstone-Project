@@ -1,6 +1,4 @@
 console.log("sff")
-//for changing background easier
-let x = 0;
 //determines what is the background, choices, etc based on what you chose
 let path;
 
@@ -13,7 +11,7 @@ let opt2=""
 function bg()
 {
   const folder = "backG/"
-let scene = ["house","road","traffic","mexico","fbi","","","","jail"];
+let scene = ["house","road","traffic","mexico","fbi","jail","jail","","jail"];
 
  document.body.style.backgroundImage = "url("+folder+ scene[path]+".jpg)";
 }
@@ -124,6 +122,15 @@ function game()
       right.innerHTML = "Leave through your backyard quietly"
       opt1="roof";
       opt2="backyard";
+      break;
+
+    case 5:
+      lose();
+      break;
+
+    case 6:
+     
+      lose();
       break;
 
     case 8:

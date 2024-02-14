@@ -2,20 +2,20 @@ console.log("sff")
 //for changing background easier
 let x = 0;
 //determines what is the background, choices, etc based on what you chose
-let path = -1;
+let path;
 
 let opt1=""
 let opt2=""
 
-  
-  
+
+
 //changes background based on path
 function bg()
 {
   const folder = "backG/"
-let scene = ["house.jpg","road.jpg"];
+let scene = ["house","road","traffic","mexico"];
 
- document.body.style.backgroundImage = "url("+folder+ scene[path]+")";
+ document.body.style.backgroundImage = "url("+folder+ scene[path]+".jpg)";
 }
 
 
@@ -26,6 +26,7 @@ document.getElementById("start").addEventListener("click", startGame )
 let left = document.getElementById("left");
 let right = document.getElementById("right");
 let images = document.getElementById("images");
+let win = document.getElementById("win");
 
 //when choices are clicked
 left.addEventListener("click", () => pathChanger("left"))
@@ -34,19 +35,19 @@ right.addEventListener("click",() => pathChanger("right"))
 //the start of the game
 function startGame()
 {
-  path++;
+  path=0;
   game()
   document.getElementById("start").style.visibility = "hidden";
   left.style.visibility = "visible";
   right.style.visibility = "visible";
   images.style.visibility = "visible";
- 
+
 }
 
 //image box changes when hovering over button choices 
 function changePix(choice)
 {
-  
+
   if(choice == "left")
   {
     images.src = "images/"+opt1+".jpg"
@@ -57,6 +58,29 @@ function changePix(choice)
   }
 }
 
+
+//changes path based on choice
+function pathChanger(choice)
+{
+  if(choice == "left" && (path == 0 || path == 1))
+  {
+    path++;
+    game();
+  }
+  else if(choice == "right" && (path == 2 || path == 8))
+  {
+    path++;
+    game();
+  }
+  else{
+    path+=4;
+  }
+ console.log(path);
+}
+
+
+
+//the main game. Changes based on path value
 function game()
 {
   bg()
@@ -68,6 +92,8 @@ function game()
       opt1="car";
       opt2="tv";
       break;
+
+
     case 1:
       text.innerHTML = "You hit the rode. You got in your car and were able to drive 10 miles before your car ran out of gas. What do you do now?";
         left.innerHTML = "call uber"
@@ -75,7 +101,27 @@ function game()
       opt1="uber";
       opt2="friend";
       break;
-      
+
+
+    case 2:
+      text.innerHTML = "You call an uber. You made it near the airport, but the traffic is causing you to stop moving. What do you do?";
+
+      left.innerHTML = "Take the bus"
+      right.innerHTML = "Walk to the airport"
+      opt1="bus";
+      opt2="run";
+      break;
+
+      //perfect win
+    case 3:
+      winner();
+
+      break;
+
+    case 4:
+
+
+
     default:
       text.innerHTML = "N/A";
       opt1="";
@@ -85,18 +131,17 @@ function game()
   }
 }
 
-function pathChanger(choice)
+function winner()
 {
-  if(choice == "left")
-  {
-    path++;
-    game();
-  }
-  else
-  {
-    path+=4;
-    game();
-  }
- console.log(path);
+  text.innerHTML = "You sprint to the airport as fast as you can. You should be in the olympics cause you catched your flight! Now you won’t have to worry about the FBI. At least for now… \n YOU WIN!";
+
+  left.style.visibility = "hidden";
+  right.style.visibility = "hidden";
+  images.style.visibility = "hidden";
+  win.style.visibility = "visible";
+  
+ 
+  
+  console.log("You Win!")
 }
 

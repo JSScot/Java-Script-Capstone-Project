@@ -101,7 +101,7 @@ function game()
 
 
     case 1:
-      text.innerHTML = "You hit the rode. You got in your car and were able to drive 10 miles before your car ran out of gas. What do you do now?";
+      text.innerHTML = "You hit the road. You got in your car and were able to drive 10 miles before your car ran out of gas. What do you do now?";
         left.innerHTML = "call Uber"
         right.innerHTML = "Call a close friend"
       opt1="uber";

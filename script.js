@@ -1,4 +1,4 @@
-console.log("sff")
+
 //determines what is the background, choices, etc based on what you chose
 let path;
 

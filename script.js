@@ -5,6 +5,22 @@ let path;
 let opt1=""
 let opt2=""
 
+let text = document.getElementById("main_text")
+document.getElementById("start").addEventListener("click", startGame )
+
+/*left is the top button
+* right is the bottom button
+* The buttons apeared on top of each other and I was too lazy to 
+* change it :P
+*/
+let left = document.getElementById("left");
+let right = document.getElementById("right");
+let images = document.getElementById("images");
+let end = document.getElementById("end");
+
+//when choices are clicked path is changed
+left.addEventListener("click", () => pathChanger("left"))
+right.addEventListener("click",() => pathChanger("right"))
 
 
 //changes background based on path
@@ -33,23 +49,6 @@ function startGame()
 
 }
 
-
-let text = document.getElementById("main_text")
-document.getElementById("start").addEventListener("click", startGame )
-
-/*left is the top button
-* right is the bottom button
-* The buttons apeared on top of each other and I was too lazy to 
-* change it :P
-*/
-let left = document.getElementById("left");
-let right = document.getElementById("right");
-let images = document.getElementById("images");
-let end = document.getElementById("end");
-
-//when choices are clicked path is changed
-left.addEventListener("click", () => pathChanger("left"))
-right.addEventListener("click",() => pathChanger("right"))
 
 
 //image box changes when hovering over button choices 

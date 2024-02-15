@@ -11,9 +11,14 @@ let opt2=""
 function bg()
 {
   const folder = "backG/"
-let scene = ["house","road","traffic","mexico","fbi","jail","jail","","jail"];
-
+let scene = ["house","road","traffic","mexico","fbi","police","jam"];
+if(path>6)
+{
+  document.body.style.backgroundImage = "url("+folder+"jail.jpg)";
+}
+  else{
  document.body.style.backgroundImage = "url("+folder+ scene[path]+".jpg)";
+  }
 }
 
 
@@ -129,7 +134,6 @@ function game()
       break;
 
     case 6:
-     
       lose();
       break;
 
@@ -164,11 +168,26 @@ function win()
 
 function lose()
   {
+    
     left.style.visibility = "hidden";
     right.style.visibility = "hidden";
     images.style.visibility = "hidden";
     end.style.visibility = "visible";
-  text.innerHTML = "GAME OVER";
-    end.src= "images/criminal.jpg";
+    if(path==5)
+    {
+  text.innerHTML = "Apparently your “close friend” is part of the IRS AND the FBI. You friend is driving toward the police station to get you arrested and take your house, since you didn’t do your taxes either. \n GAME OVER";
+      end.src= "images/betrayed.jpg";
+    }
+    else if (path ==6)
+    {
+       text.innerHTML = "I just said there was traffic. You hopped on the bus and missed your flight. Better luck next time. \n GAME OVER";
+      end.src= "images/angry.jpg";
+    }
+    else
+    {
+      text.innerHTML= "The FBI caught you. You are not that sneaky..\n GAME OVER"
+      end.src= "images/criminal.jpg";
+    }
+    //end.src= "images/criminal.jpg";
   }
 

@@ -26,6 +26,7 @@ if(path>6)
 let text = document.getElementById("main_text")
 document.getElementById("start").addEventListener("click", startGame )
 
+//left is the
 let left = document.getElementById("left");
 let right = document.getElementById("right");
 let images = document.getElementById("images");

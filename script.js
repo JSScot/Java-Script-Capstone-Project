@@ -21,21 +21,6 @@ if(path>6)
   }
 }
 
-
-
-let text = document.getElementById("main_text")
-document.getElementById("start").addEventListener("click", startGame )
-
-//left is the
-let left = document.getElementById("left");
-let right = document.getElementById("right");
-let images = document.getElementById("images");
-let end = document.getElementById("end");
-
-//when choices are clicked
-left.addEventListener("click", () => pathChanger("left"))
-right.addEventListener("click",() => pathChanger("right"))
-
 //the start of the game
 function startGame()
 {
@@ -47,6 +32,25 @@ function startGame()
   images.style.visibility = "visible";
 
 }
+
+
+let text = document.getElementById("main_text")
+document.getElementById("start").addEventListener("click", startGame )
+
+/*left is the top button
+* right is the bottom button
+* The buttons apeared on top of each other and I was too lazy to 
+* change it :P
+*/
+let left = document.getElementById("left");
+let right = document.getElementById("right");
+let images = document.getElementById("images");
+let end = document.getElementById("end");
+
+//when choices are clicked path is changed
+left.addEventListener("click", () => pathChanger("left"))
+right.addEventListener("click",() => pathChanger("right"))
+
 
 //image box changes when hovering over button choices 
 function changePix(choice)
@@ -99,7 +103,7 @@ function game()
 
     case 1:
       text.innerHTML = "You hit the rode. You got in your car and were able to drive 10 miles before your car ran out of gas. What do you do now?";
-        left.innerHTML = "call uber"
+        left.innerHTML = "call Uber"
         right.innerHTML = "Call a close friend"
       opt1="uber";
       opt2="friend";
@@ -122,7 +126,7 @@ function game()
       break;
 
     case 4:
-      text.innerHTML = "You watched tv for a while. You wasted time and the police is at your door now. Now what do you want to do?";
+      text.innerHTML = "You watched tv for a while. You wasted time and the FBI is at your door now. Now what do you want to do?";
 
       left.innerHTML = "Run to the attic, and escape on the roof quietly"
       right.innerHTML = "Leave through your backyard quietly"
